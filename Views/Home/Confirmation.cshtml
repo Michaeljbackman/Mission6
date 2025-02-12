@@ -1,0 +1,15 @@
+
+@model Mission6.Models.Movie
+
+<h2>Movie Added Successfully!</h2>
+
+<p><strong>Category:</strong> @Model.Category</p>
+<p><strong>Title:</strong> @Model.Title</p>
+<p><strong>Year:</strong> @Model.Year</p>
+<p><strong>Director:</strong> @Model.Director</p>
+<p><strong>Rating:</strong> @Model.Rating</p>
+<p><strong>Edited:</strong> @(Model.Edited.HasValue ? (Model.Edited.Value ? "Yes" : "No") : "N/A")</p>
+<p><strong>Lent To:</strong> @Model.LentTo</p>
+<p><strong>Notes:</strong> @Model.Notes</p>
+
+<a href="/Home/AddMovie" class="btn btn-primary">Add Another Movie</a>

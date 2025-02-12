@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "The Joel Hilton Film Collection";
+}
+
+<div class="text-center">
+    <h1 class="display-4">The Joel Hilton Film Collection</h1>
+
+    <!-- Joel Hilton's image -->
+    <img src="~/img/JoelHiltonHeadshot.jpg" 
+         alt="Joel Hilton" 
+         width="300" 
+         class="img-fluid rounded shadow mt-3">
+
+    <p class="mt-3">
+        Welcome to the ultimate collection of films curated by Joel Hilton. 
+        Explore, add, and track your favorite movies!
+    </p>
+
+    <!-- Navigation buttons -->
+    <div class="mt-4">
+        <a href="/Home/AddMovie" class="btn btn-primary btn-lg">Add a Movie</a>
+        <a href="/Home/MovieList" class="btn btn-secondary btn-lg">View Movie Collection</a>
+    </div>
+
+    <!-- External links section -->
+    <div class="mt-5">
+        <h3>Get to Know Joel</h3>
+        <p>Check out Joel Hilton’s projects and work:</p>
+        
+        <a href="https://www.qwcomedy.com/" class="btn btn-outline-info" target="_blank">Quick Wits Comedy</a>
+        <a href="https://baconsale.com/" class="btn btn-outline-danger" target="_blank">Baconsale Podcast</a>
+    </div>
+</div>
