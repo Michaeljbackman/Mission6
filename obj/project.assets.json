@@ -3117,11 +3117,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/michaelbackman/RiderProjects/Mission6/Mission6/Mission6.csproj",
+      "projectUniqueName": "/Users/michaelbackman/RiderProjects/Mission6/Mission6.csproj",
       "projectName": "Mission6",
-      "projectPath": "/Users/michaelbackman/RiderProjects/Mission6/Mission6/Mission6.csproj",
+      "projectPath": "/Users/michaelbackman/RiderProjects/Mission6/Mission6.csproj",
       "packagesPath": "/Users/michaelbackman/.nuget/packages/",
-      "outputPath": "/Users/michaelbackman/RiderProjects/Mission6/Mission6/obj/",
+      "outputPath": "/Users/michaelbackman/RiderProjects/Mission6/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/michaelbackman/.nuget/NuGet/NuGet.Config"

@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using Mission6.Models;
 
 namespace Mission6.Controllers;
@@ -27,7 +29,10 @@ public class HomeController : Controller
     
     public IActionResult MovieList()
     {
-        var movies = _context.Movies.ToList(); // Get all movies from the database
+        var movies = _context.Movies // Get all movies from the database
+            .Include(m => m.Category)
+            .ToList();
+        
         return View(movies);
     }
 
@@ -36,16 +41,74 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult AddMovie()
     {
+        // Pass categories to the view
+        ViewBag.Categories = new SelectList(_context.Categories, "CategoryId", "CategoryName");
+
         return View();
     }
 
+    
+    [HttpGet]
+    public IActionResult EditMovie(int id)
+    {
+        var movie = _context.Movies.Find(id);
+        if (movie == null)
+        {
+            return NotFound();
+        }
+
+        // Pass categories to the view
+        ViewBag.Categories = new SelectList(_context.Categories, "CategoryId", "CategoryName");
+
+        return View(movie);
+    }
+
+    
+    
     // POST Method - Save New Movie to Database
     [HttpPost]
-    public IActionResult AddMovie(Movie response)
+    public IActionResult AddMovie(Movie movie)
     {
-        _context.Movies.Add(response); // Add movie to the database
-        _context.SaveChanges(); // Save changes to the database
+        if (ModelState.IsValid)
+        {
+            _context.Movies.Add(movie);
+            _context.SaveChanges();
+            return RedirectToAction("MovieList");
+        }
 
-        return View("Confirmation", response); // Show Confirmation Page
+        // Repopulate categories if validation fails
+        ViewBag.Categories = new SelectList(_context.Categories, "CategoryId", "CategoryName");
+
+        return View(movie);
     }
+
+    
+    [HttpPost]
+    public IActionResult EditMovie(Movie movie)
+    {
+        if (ModelState.IsValid)
+        {
+            _context.Movies.Update(movie);
+            _context.SaveChanges();
+            return RedirectToAction("MovieList");
+        }
+
+        // Repopulate dropdown if validation fails
+        ViewBag.Categories = new SelectList(_context.Categories, "CategoryId", "CategoryName");
+
+        return View(movie);
+    }
+    
+    [HttpPost]
+    public IActionResult DeleteMovie(int id)
+    {
+        var movie = _context.Movies.Find(id);
+        if (movie != null)
+        {
+            _context.Movies.Remove(movie);
+            _context.SaveChanges();
+        }
+        return RedirectToAction("MovieList");
+    }
+
 }

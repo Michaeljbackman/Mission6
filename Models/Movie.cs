@@ -1,30 +1,34 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mission6.Models;
 
 public class Movie
 {
-    [Key] // Primary key
+    [Key]
     public int MovieId { get; set; }
     
-    [Required] // Makes it so that it must be entered
-    public string Category { get; set; }
-    
+    public int CategoryId { get; set; }
+
+    [ForeignKey("CategoryId")]
+    public Category? Category { get; set; }
+
     [Required]
-    public string Title { get; set; }
-    
+    public string Title { get; set; } = string.Empty;
+
     [Required]
     public int Year { get; set; }
-    
-    [Required]
-    public string Director { get; set; }
-    
-    [Required]
-    public string Rating { get; set; } // Use a dropdown for this
-    
-    public bool? Edited { get; set; } // ? Makes it so it can be null
-    public string? LentTo { get; set; }
-    
-    [StringLength(25)] // Limit of 25 characters
-    public string? Notes { get; set; }
+
+    public string? Director { get; set; }  // Allow NULLs to match DB
+
+    public string? Rating { get; set; }  // Allow NULLs to match DB
+
+    public bool? Edited { get; set; }
+
+    public string? LentTo { get; set; }  // Allow NULLs to match DB
+
+    public int CopiedToPlex { get; set; }
+
+    [StringLength(25)]
+    public string? Notes { get; set; }  // Allow NULLs to match DB
 }

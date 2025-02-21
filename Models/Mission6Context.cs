@@ -9,4 +9,5 @@ public class Mission6Context : DbContext
     }
     
     public DbSet<Movie> Movies { get; set; }
+    public DbSet<Category> Categories { get; set; } // Thhis makes it so I can see the categories! Yeehaw
 }

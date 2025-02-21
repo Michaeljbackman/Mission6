@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rI+HMzOfigI=",
+  "dgSpecHash": "o/Ck1nOlNF8=",
   "success": true,
-  "projectFilePath": "/Users/michaelbackman/RiderProjects/Mission6/Mission6/Mission6.csproj",
+  "projectFilePath": "/Users/michaelbackman/RiderProjects/Mission6/Mission6.csproj",
   "expectedPackageFiles": [
     "/Users/michaelbackman/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/michaelbackman/.nuget/packages/microsoft.bcl.asyncinterfaces/7.0.0/microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
